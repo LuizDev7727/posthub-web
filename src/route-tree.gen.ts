@@ -16,6 +16,12 @@ import { Route as AuthSignUpIndexRouteImport } from './pages/auth/sign-up/index'
 import { Route as AuthSignInIndexRouteImport } from './pages/auth/sign-in/index'
 import { Route as DashboardOrgsSlugLayoutRouteImport } from './pages/dashboard/orgs/$slug/layout'
 import { Route as DashboardOrgsSlugIndexRouteImport } from './pages/dashboard/orgs/$slug/index'
+import { Route as DashboardOrgsSlugSettingsIndexRouteImport } from './pages/dashboard/orgs/$slug/settings/index'
+import { Route as DashboardOrgsSlugProjectsIndexRouteImport } from './pages/dashboard/orgs/$slug/projects/index'
+import { Route as DashboardOrgsSlugPostsIndexRouteImport } from './pages/dashboard/orgs/$slug/posts/index'
+import { Route as DashboardOrgsSlugMembersIndexRouteImport } from './pages/dashboard/orgs/$slug/members/index'
+import { Route as DashboardOrgsSlugIntegrationsIndexRouteImport } from './pages/dashboard/orgs/$slug/integrations/index'
+import { Route as DashboardOrgsSlugPostsCreatePostsIndexRouteImport } from './pages/dashboard/orgs/$slug/posts/create-posts/index'
 
 const DashboardLayoutRoute = DashboardLayoutRouteImport.update({
   id: '/dashboard',
@@ -52,6 +58,42 @@ const DashboardOrgsSlugIndexRoute = DashboardOrgsSlugIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DashboardOrgsSlugLayoutRoute,
 } as any)
+const DashboardOrgsSlugSettingsIndexRoute =
+  DashboardOrgsSlugSettingsIndexRouteImport.update({
+    id: '/settings/',
+    path: '/settings/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
+const DashboardOrgsSlugProjectsIndexRoute =
+  DashboardOrgsSlugProjectsIndexRouteImport.update({
+    id: '/projects/',
+    path: '/projects/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
+const DashboardOrgsSlugPostsIndexRoute =
+  DashboardOrgsSlugPostsIndexRouteImport.update({
+    id: '/posts/',
+    path: '/posts/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
+const DashboardOrgsSlugMembersIndexRoute =
+  DashboardOrgsSlugMembersIndexRouteImport.update({
+    id: '/members/',
+    path: '/members/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
+const DashboardOrgsSlugIntegrationsIndexRoute =
+  DashboardOrgsSlugIntegrationsIndexRouteImport.update({
+    id: '/integrations/',
+    path: '/integrations/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
+const DashboardOrgsSlugPostsCreatePostsIndexRoute =
+  DashboardOrgsSlugPostsCreatePostsIndexRouteImport.update({
+    id: '/posts/create-posts/',
+    path: '/posts/create-posts/',
+    getParentRoute: () => DashboardOrgsSlugLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +103,12 @@ export interface FileRoutesByFullPath {
   '/auth/sign-up': typeof AuthSignUpIndexRoute
   '/dashboard/orgs': typeof DashboardOrgsIndexRoute
   '/dashboard/orgs/$slug/': typeof DashboardOrgsSlugIndexRoute
+  '/dashboard/orgs/$slug/integrations': typeof DashboardOrgsSlugIntegrationsIndexRoute
+  '/dashboard/orgs/$slug/members': typeof DashboardOrgsSlugMembersIndexRoute
+  '/dashboard/orgs/$slug/posts': typeof DashboardOrgsSlugPostsIndexRoute
+  '/dashboard/orgs/$slug/projects': typeof DashboardOrgsSlugProjectsIndexRoute
+  '/dashboard/orgs/$slug/settings': typeof DashboardOrgsSlugSettingsIndexRoute
+  '/dashboard/orgs/$slug/posts/create-posts': typeof DashboardOrgsSlugPostsCreatePostsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,6 +117,12 @@ export interface FileRoutesByTo {
   '/auth/sign-up': typeof AuthSignUpIndexRoute
   '/dashboard/orgs': typeof DashboardOrgsIndexRoute
   '/dashboard/orgs/$slug': typeof DashboardOrgsSlugIndexRoute
+  '/dashboard/orgs/$slug/integrations': typeof DashboardOrgsSlugIntegrationsIndexRoute
+  '/dashboard/orgs/$slug/members': typeof DashboardOrgsSlugMembersIndexRoute
+  '/dashboard/orgs/$slug/posts': typeof DashboardOrgsSlugPostsIndexRoute
+  '/dashboard/orgs/$slug/projects': typeof DashboardOrgsSlugProjectsIndexRoute
+  '/dashboard/orgs/$slug/settings': typeof DashboardOrgsSlugSettingsIndexRoute
+  '/dashboard/orgs/$slug/posts/create-posts': typeof DashboardOrgsSlugPostsCreatePostsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,6 +133,12 @@ export interface FileRoutesById {
   '/auth/sign-up/': typeof AuthSignUpIndexRoute
   '/dashboard/orgs/': typeof DashboardOrgsIndexRoute
   '/dashboard/orgs/$slug/': typeof DashboardOrgsSlugIndexRoute
+  '/dashboard/orgs/$slug/integrations/': typeof DashboardOrgsSlugIntegrationsIndexRoute
+  '/dashboard/orgs/$slug/members/': typeof DashboardOrgsSlugMembersIndexRoute
+  '/dashboard/orgs/$slug/posts/': typeof DashboardOrgsSlugPostsIndexRoute
+  '/dashboard/orgs/$slug/projects/': typeof DashboardOrgsSlugProjectsIndexRoute
+  '/dashboard/orgs/$slug/settings/': typeof DashboardOrgsSlugSettingsIndexRoute
+  '/dashboard/orgs/$slug/posts/create-posts/': typeof DashboardOrgsSlugPostsCreatePostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,6 +150,12 @@ export interface FileRouteTypes {
     | '/auth/sign-up'
     | '/dashboard/orgs'
     | '/dashboard/orgs/$slug/'
+    | '/dashboard/orgs/$slug/integrations'
+    | '/dashboard/orgs/$slug/members'
+    | '/dashboard/orgs/$slug/posts'
+    | '/dashboard/orgs/$slug/projects'
+    | '/dashboard/orgs/$slug/settings'
+    | '/dashboard/orgs/$slug/posts/create-posts'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -98,6 +164,12 @@ export interface FileRouteTypes {
     | '/auth/sign-up'
     | '/dashboard/orgs'
     | '/dashboard/orgs/$slug'
+    | '/dashboard/orgs/$slug/integrations'
+    | '/dashboard/orgs/$slug/members'
+    | '/dashboard/orgs/$slug/posts'
+    | '/dashboard/orgs/$slug/projects'
+    | '/dashboard/orgs/$slug/settings'
+    | '/dashboard/orgs/$slug/posts/create-posts'
   id:
     | '__root__'
     | '/'
@@ -107,6 +179,12 @@ export interface FileRouteTypes {
     | '/auth/sign-up/'
     | '/dashboard/orgs/'
     | '/dashboard/orgs/$slug/'
+    | '/dashboard/orgs/$slug/integrations/'
+    | '/dashboard/orgs/$slug/members/'
+    | '/dashboard/orgs/$slug/posts/'
+    | '/dashboard/orgs/$slug/projects/'
+    | '/dashboard/orgs/$slug/settings/'
+    | '/dashboard/orgs/$slug/posts/create-posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -167,16 +245,72 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardOrgsSlugIndexRouteImport
       parentRoute: typeof DashboardOrgsSlugLayoutRoute
     }
+    '/dashboard/orgs/$slug/settings/': {
+      id: '/dashboard/orgs/$slug/settings/'
+      path: '/settings'
+      fullPath: '/dashboard/orgs/$slug/settings'
+      preLoaderRoute: typeof DashboardOrgsSlugSettingsIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
+    '/dashboard/orgs/$slug/projects/': {
+      id: '/dashboard/orgs/$slug/projects/'
+      path: '/projects'
+      fullPath: '/dashboard/orgs/$slug/projects'
+      preLoaderRoute: typeof DashboardOrgsSlugProjectsIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
+    '/dashboard/orgs/$slug/posts/': {
+      id: '/dashboard/orgs/$slug/posts/'
+      path: '/posts'
+      fullPath: '/dashboard/orgs/$slug/posts'
+      preLoaderRoute: typeof DashboardOrgsSlugPostsIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
+    '/dashboard/orgs/$slug/members/': {
+      id: '/dashboard/orgs/$slug/members/'
+      path: '/members'
+      fullPath: '/dashboard/orgs/$slug/members'
+      preLoaderRoute: typeof DashboardOrgsSlugMembersIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
+    '/dashboard/orgs/$slug/integrations/': {
+      id: '/dashboard/orgs/$slug/integrations/'
+      path: '/integrations'
+      fullPath: '/dashboard/orgs/$slug/integrations'
+      preLoaderRoute: typeof DashboardOrgsSlugIntegrationsIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
+    '/dashboard/orgs/$slug/posts/create-posts/': {
+      id: '/dashboard/orgs/$slug/posts/create-posts/'
+      path: '/posts/create-posts'
+      fullPath: '/dashboard/orgs/$slug/posts/create-posts'
+      preLoaderRoute: typeof DashboardOrgsSlugPostsCreatePostsIndexRouteImport
+      parentRoute: typeof DashboardOrgsSlugLayoutRoute
+    }
   }
 }
 
 interface DashboardOrgsSlugLayoutRouteChildren {
   DashboardOrgsSlugIndexRoute: typeof DashboardOrgsSlugIndexRoute
+  DashboardOrgsSlugIntegrationsIndexRoute: typeof DashboardOrgsSlugIntegrationsIndexRoute
+  DashboardOrgsSlugMembersIndexRoute: typeof DashboardOrgsSlugMembersIndexRoute
+  DashboardOrgsSlugPostsIndexRoute: typeof DashboardOrgsSlugPostsIndexRoute
+  DashboardOrgsSlugProjectsIndexRoute: typeof DashboardOrgsSlugProjectsIndexRoute
+  DashboardOrgsSlugSettingsIndexRoute: typeof DashboardOrgsSlugSettingsIndexRoute
+  DashboardOrgsSlugPostsCreatePostsIndexRoute: typeof DashboardOrgsSlugPostsCreatePostsIndexRoute
 }
 
 const DashboardOrgsSlugLayoutRouteChildren: DashboardOrgsSlugLayoutRouteChildren =
   {
     DashboardOrgsSlugIndexRoute: DashboardOrgsSlugIndexRoute,
+    DashboardOrgsSlugIntegrationsIndexRoute:
+      DashboardOrgsSlugIntegrationsIndexRoute,
+    DashboardOrgsSlugMembersIndexRoute: DashboardOrgsSlugMembersIndexRoute,
+    DashboardOrgsSlugPostsIndexRoute: DashboardOrgsSlugPostsIndexRoute,
+    DashboardOrgsSlugProjectsIndexRoute: DashboardOrgsSlugProjectsIndexRoute,
+    DashboardOrgsSlugSettingsIndexRoute: DashboardOrgsSlugSettingsIndexRoute,
+    DashboardOrgsSlugPostsCreatePostsIndexRoute:
+      DashboardOrgsSlugPostsCreatePostsIndexRoute,
   }
 
 const DashboardOrgsSlugLayoutRouteWithChildren =

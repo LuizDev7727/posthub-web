@@ -11,10 +11,13 @@ import {
 } from "./ui/dropdown-menu";
 import { ChevronsUpDown } from "lucide-react";
 import { Badge } from "./ui/badge";
-import { Link } from "@tanstack/react-router";
+import { Link, useParams } from "@tanstack/react-router";
+import { CreateOrganizationDialog } from "./create-organization-dialog";
 
 export function OrganizationSwitcher() {
-  const currentOrg = "stripe";
+  const { slug: currentOrg } = useParams({
+    from: "/dashboard/orgs/$slug",
+  });
 
   const organizations = [
     {
@@ -69,8 +72,8 @@ export function OrganizationSwitcher() {
                 <Link
                   className="cursor-pointer"
                   href={`/dashboard/orgs/${organization.slug}`}
-                  to="/dashboard/orgs/$id"
-                  params={{ id: organization.slug }}
+                  to="/dashboard/orgs/$slug"
+                  params={{ slug: currentOrg }}
                 >
                   <Avatar className="mr-2 size-4">
                     {organization.avatarUrl && (
@@ -86,7 +89,7 @@ export function OrganizationSwitcher() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          {/* <CreateOrganizationDialog/> */}
+          <CreateOrganizationDialog />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
