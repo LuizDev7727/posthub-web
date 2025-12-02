@@ -1,14 +1,25 @@
 import { OrganizationSwitcher } from "@/components/organization-switcher";
+import { PendingInvites } from "@/components/pending-invites";
 import { Profile } from "@/components/profile";
 import { Tabs } from "@/components/tabs";
-import { createFileRoute, Outlet } from "@tanstack/react-router";
-import { Slash } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  useParams,
+} from "@tanstack/react-router";
+import { Slash, UploadCloudIcon } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard/orgs/$slug")({
   component: OrgLayout,
 });
 
 function OrgLayout() {
+  const { slug } = useParams({
+    from: "/dashboard/orgs/$slug",
+  });
+
   return (
     <div>
       <div>
@@ -26,7 +37,19 @@ function OrgLayout() {
 
             <OrganizationSwitcher />
           </div>
-          <Profile />
+          <div className="flex items-center gap-x-2">
+            <Button className="bg-lime-500 hover:bg-lime-600" asChild>
+              <Link
+                to={`/dashboard/orgs/$slug/posts/create-posts`}
+                params={{ slug }}
+              >
+                <UploadCloudIcon />
+                Create Posts
+              </Link>
+            </Button>
+            <PendingInvites />
+            <Profile />
+          </div>
         </header>
         <Tabs />
       </div>
